@@ -1,7 +1,13 @@
+/*  07/08/19
+    Attribution to the following reference sites:
+    https://jasmine.github.io/api/edge/matchers - for learning further match methods.
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click - for learning to simulate a mouse click event.
+*/
+
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
- * all of the tests that will be run against your application.
+ * all of the tests that will be run against the feedreader application.
  */
 
 /* We're placing all of our tests within the $() function,
@@ -9,19 +15,16 @@
  * to ensure they don't run until the DOM is ready.
  */
 $(function() {
-    /* This is our first test suite - a test suite just contains
+    /* This is the first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
-    * feeds definitions, the allFeeds variable in our application.
+    * feeds definitions, in the allFeeds variable within the app.js file.
     */
     describe('RSS Feeds', function() {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
-         * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
+         * empty.
          */
-        it('are defined', function() {
+        it('are defined and not empty', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
@@ -49,6 +52,7 @@ $(function() {
         });
     });
 
+    /* Test suite named "The menu" */
     describe('The Menu', function() {
         /* This test ensures the menu element is
          * hidden by default.
@@ -61,19 +65,20 @@ $(function() {
           expect(menuState).toContain('menu-hidden');
         });
 
-        /* This test ensures the menu changes
-         * visibility when the menu icon is clicked. This test
-         * has two expectations: does the menu display when
-         * clicked and does it hide when clicked again.
-         */
-       it('menu should toggle when clicked', function() {
-         menuButton.click();
-         expect(menuState).not.toContain('menu-hidden');
-         menuButton.click();
-         expect(menuState).toContain('menu-hidden');
-       });
+         /* This test ensures the menu changes
+          * visibility when the menu icon is clicked. This test
+          * has two expectations: does the menu display when
+          * clicked and does it hide when clicked again.
+          */
+        it('menu should toggle when clicked', function() {
+          menuButton.click();
+          expect(menuState).not.toContain('menu-hidden');
+          menuButton.click();
+          expect(menuState).toContain('menu-hidden');
+        });
     });
 
+    /* Test suite named "Initial Entries" */
     describe('Initial Entries', function() {
         /* This test ensures when the loadFeed
         * function is called and completes its work, there is at least
@@ -94,6 +99,7 @@ $(function() {
         });
     });
 
+    /* Test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
         let content1Feed1 = '';
         let content1Feed2 = '';
