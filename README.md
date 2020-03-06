@@ -6,7 +6,7 @@
 * [App specifics](#app-specifics)
 * [Prerequisites](#prerequisites)
 * [Background](#background)
-* [License](#license)
+* [License and Attribution](#license-and-attribution)
 
 ## Introduction
 
@@ -33,7 +33,7 @@ To get started, ensure:
 To see the detail of the specific requirements that the project needed to meet, look at the project instructions on the [Udacity website](https://classroom.udacity.com/) or
 [Udacity's starter code GitHub repo](https://github.com/udacity/frontend-nanodegree-feedreader)
 
-## License
+## License and Attribution
 
 This project just added to the initial application builds from [Udacity's starter code GitHub repo](https://github.com/udacity/frontend-nanodegree-feedreader), so additional code is licensed under the same terms. See the **LICENSE file** for license rights and limitations.
 
