@@ -94,10 +94,32 @@ $(function() {
         });
     });
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function() {
+        let content1Feed1 = '';
+        let content1Feed2 = '';
+        /* This test ensures when a new feed is loaded
+        * by the loadFeed function that the content actually changes.
+        * loadFeed() is asynchronous, so this test requires
+        * the use of Jasmine's beforeEach and asynchronous done() function
+        */
+        beforeEach(function(done) {
+          loadFeed(0, function() {
+            const entry1Feed1 = document.querySelector('.entry');
+            content1Feed1 = entry1Feed1.textContent;
+            done();
+          });
+        });
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+        beforeEach(function(done) {
+          loadFeed(1, function() {
+            const entry1Feed2 = document.querySelector('.entry');
+            content1Feed2 = entry1Feed2.textContent;
+            done();
+          });
+        });
+
+        it('check that the content changes when a new feed is loaded', function() {
+          expect(content1Feed1).not.toEqual(content1Feed2);
+        });
+    });
 }());
