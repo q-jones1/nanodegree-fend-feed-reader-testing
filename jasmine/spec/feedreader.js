@@ -55,16 +55,23 @@ $(function() {
          */
         const body = document.querySelector('body');
         const menuState = body.classList;
+        const menuButton = document.querySelector('.menu-icon-link');
 
         it('check menu is hidden on page load', function() {
           expect(menuState).toContain('menu-hidden');
         });
 
-        /* TODO: Write a test that ensures the menu changes
+        /* This test ensures the menu changes
          * visibility when the menu icon is clicked. This test
-         * should have two expectations: does the menu display when
+         * has two expectations: does the menu display when
          * clicked and does it hide when clicked again.
          */
+       it('menu should toggle when clicked', function() {
+         menuButton.click();
+         expect(menuState).not.toContain('menu-hidden');
+         menuButton.click();
+         expect(menuState).toContain('menu-hidden');
+       });
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
